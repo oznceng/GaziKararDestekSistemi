@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onkoloji Karar Destek Sistemi</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('/images/background.jpg'); /* Arka plan resmi ekleyin */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            padding-top: 60px; /* Navbar height adjustment */
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .navbar-brand {
+            font-size: 1.5em;
+            color: #fff !important;
+        }
+        .nav-link {
+            color: #fff !important;
+        }
+        .container {
+            margin-top: 10px;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .card-text {
+            color: #333;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        .card-body .logo {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Ana Sayfa</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#patient-management">Hasta Görüntüleme, Kayıt ve Güncelleme</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#diagnosis">Teşhis Koyma</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#articles">Makale Sayfası</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Çıkış</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content" id="patient-management">
+            <h2 class="text-center mb-4">Hasta Görüntüleme, Kayıt ve Güncelleme</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Hasta Bilgilerini Görüntüleyin</h5>
+                            <img src="{{ url_for('static', filename='images/goruntule.png') }}" alt="Doctor Logo" class="logo">
+                            <p class="card-text">Kayıtlı hasta bilgilerini buradan görüntüleyebilirsiniz.</p>
+                            <a href="/hastalar" class="btn btn-primary btn-block">Görüntüle</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Yeni Hasta Kaydı</h5>
+                            <img src="{{ url_for('static', filename='images/kayit.png') }}" alt="Doctor Logo" class="logo">
+                            <p class="card-text">Yeni bir hasta kaydı oluşturmak için buraya tıklayın.</p>
+                            <a href="/new_patient" class="btn btn-primary btn-block">Kayıt Oluştur</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Hasta Bilgilerini Güncelleyin</h5>
+                            <img src="{{ url_for('static', filename='images/guncelle.png') }}" alt="Doctor Logo" class="logo">
+                            <p class="card-text">Mevcut hasta bilgilerini güncellemek için buraya tıklayın.</p>
+                            <a href="/update_patient" class="btn btn-primary btn-block">Güncelle</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content" id="diagnosis">
+            <h2 class="text-center mb-4">Teşhis Koyma</h2>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Teşhis Koyma Sistemi</h5>
+                            <img src="{{ url_for('static', filename='images/teshis.png') }}" alt="Doctor Logo" class="logo">
+                            <p class="card-text">Teşhis koymak için buraya tıklayın.</p>
+                            <a href="/teshis" class="btn btn-primary btn-block">Teşhis Koy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content" id="articles">
+            <h2 class="text-center mb-4">Makale Sayfası</h2>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Tıbbi Makaleler</h5>
+                            <img src="{{ url_for('static', filename='images/makale.png') }}" alt="Doctor Logo" class="logo">
+                            <p class="card-text">En son tıbbi makaleleri buradan okuyabilirsiniz.</p>
+                            <a href="/makale" class="btn btn-primary btn-block">Makale Oku</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

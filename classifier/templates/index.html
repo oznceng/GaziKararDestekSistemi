@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanser Siniflandirma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+            font-size: 2.5em;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form p {
+            width: 100%;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .button-group button {
+            width: 48%;
+        }
+        .profile-view {
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .file-input-group {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-input-group input[type="file"] {
+            flex: 1;
+        }
+        .file-input-group label {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hastalik Teşhis Verileri Yükle</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="profile-view">
+            <p><strong>Hasta Adi:</strong> John Doe</p>
+            <p><strong>Yaş:</strong> 45</p>
+            <p><strong>Cinsiyet:</strong> Erkek</p>
+            <p><strong>Teşhis Tarihi:</strong> 01/06/2023</p>
+        </div>
+        <div class="file-input-group">
+            <label for="image-upload">Resim Yükle:</label>
+            <input type="file" id="image-upload" name="image">
+        </div>
+        <div class="file-input-group">
+            <label for="blood-test-upload">Kan Testi Sonucu Yükle:</label>
+            <input type="file" id="blood-test-upload" name="blood_test">
+        </div>
+        {{ form.as_p }}
+        <div class="button-group">
+            <button type="submit">Resim Yükle</button>
+            <button type="submit">Kan Testi Sonucu Yükle</button>
+        </div>
+    </form>
+</body>
+</html>

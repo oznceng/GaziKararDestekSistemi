@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siniflandirma Raporu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5em;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+            width: 80%;
+        }
+        li {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        li h3 {
+            margin: 0 0 10px;
+            font-size: 1.2em;
+        }
+        li h3 a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        li h3 a:hover {
+            text-decoration: underline;
+        }
+        li p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            line-height: 1.6em;
+        }
+        strong {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Result: {{ result }}</h1>
+    {% if articles %}
+        <h2>Relevant Articles</h2>
+        <ul>
+        {% for article in articles %}
+            <li>
+                <h3><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h3>
+                <p><strong>Authors:</strong> {{ article.authors }}</p>
+                <p><strong>Keywords:</strong> {{ article.keywords }}</p>
+                <p><strong>Abstract:</strong> {{ article.abstract }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
